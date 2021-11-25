@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <title>Moving Background</title>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    .container {
+        max-width: 960px;
+        margin: 50px auto;
+        padding: 0 15px;
+    }
+
+    .banner-image {
+        width: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 250px;
+    }
+    .banner-section {
+        overflow: hidden;
+        position: relative;
+        background-color: #d2ead2;
+    }
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.2;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-image">
+                <img src="images/placeholder.png" alt="Video Placeholder" />
+            </div>
+        </div>
+    </section>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function() {
+            var bg = $('.banner-section');
+            var windowWidth = window.innerWidth / 4;
+            var windowHeight = window.innerHeight / 4;
+            bg.mousemove(function (e) {
+                var mouseX = e.clientX / windowWidth;
+                var mouseY = e.clientY / windowHeight;
+                $(this).find(".banner-image img").css("transform", "translate3d(-" + mouseX + "%, -" + mouseY + "%, 0)");
+            });
+        });
+    </script>
+</body>
+
+</html>
